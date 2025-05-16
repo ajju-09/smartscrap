@@ -2,6 +2,7 @@
 import { useAppContext } from "@/app/context/AppContext";
 import { assets, Loader } from "@/assets/assets";
 import { ScrollAnimation } from "@/components/animation";
+import { RetroGrid } from "@/components/magicui/retro-grid";
 import Navbar2 from "@/components/Navbar2";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -203,6 +204,7 @@ const recycle = () => {
             </div>
           </div>
         </div>
+        <RetroGrid />
       </section>
     </>
   );

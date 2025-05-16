@@ -1,10 +1,10 @@
 "use client";
-
 import { assets } from "@/assets/assets";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import {ScrollAnimation} from "./animation";
+import { Meteors } from "./magicui/meteors";
 
 
 const Hero = () => {
@@ -35,10 +35,14 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
+  
+
+
   return (
   
     <section className="min-h-screen flex items-center justify-center px-4 md:py-8 py-2 ">
-     
+      <Meteors number={100} />
+      
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-7xl w-full items-center">
         {/* Image Section - on top for mobile */}
        

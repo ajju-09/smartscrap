@@ -1,11 +1,10 @@
 'use client'
 
 import Charts from "@/components/Charts";
-import Feedback from "@/components/Feedback";
-import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Hero2 from "@/components/Hero2";
 import Navbar from "../components/Navbar";
+import Feedback from "@/components/Feedback";
 
 export default function Home() {
   return (
@@ -16,6 +15,7 @@ export default function Home() {
     <Charts />
     <Feedback />
     {/* <Footer /> */}
+
    </>
   );
 }

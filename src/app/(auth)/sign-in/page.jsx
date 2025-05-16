@@ -1,7 +1,8 @@
 "use client";
 import { useAppContext } from "@/app/context/AppContext";
 import { assets, Loader } from "@/assets/assets";
-import {ScrollAnimation} from "@/components/animation";
+import { ScrollAnimation } from "@/components/animation";
+import { Particles } from "@/components/magicui/particles";
 import Navbar2 from "@/components/Navbar2";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -32,17 +33,13 @@ const signUp = () => {
     } catch (error) {
       toast.error("SignIn failed");
       console.log("SignIn failed");
-      
-    } finally{
+    } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    if (
-      user.email.length > 0 &&
-      user.password.length > 0
-    ) {
+    if (user.email.length > 0 && user.password.length > 0) {
       setButtonDisabled(false);
     } else {
       setButtonDisabled(true);
@@ -53,6 +50,9 @@ const signUp = () => {
     <ScrollAnimation>
       <Navbar2 />
       <section className="flex flex-col md:flex-row items-center justify-center min-h-screen px-4 py-8">
+        <div className="absolute inset-0 -z-10">
+          <Particles quantity={200} ease={80} />
+        </div>
 
         {/* Form Section */}
         <div className="grid w-full max-w-sm gap-8 border-2 border-white rounded-3xl m-8 p-6 shadow-lg transition-all duration-300 ease-in-out hover:shadow-xl shadow-[#80ffdb]">
@@ -124,7 +124,7 @@ const signUp = () => {
           )}
         </div>
       </section>
-      </ScrollAnimation>
+    </ScrollAnimation>
   );
 };
 

@@ -89,7 +89,7 @@ const Charts = () => {
 
   return (
     
-    <section className="min-h-screen px-4 py-3 flex items-center justify-center ">
+    <section className=" min-h-screen px-4 py-3 flex items-center justify-center ">
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-7xl w-full items-center mt-10">
         {/* left pie chart */}

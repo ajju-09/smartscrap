@@ -1,212 +1,93 @@
-import { Avatar } from "@heroui/avatar";
-import { Card, CardHeader, CardBody } from "@heroui/card";
-import React from "react";
-import {ScrollAnimation} from "./animation";
+'use client'
+import { cn } from "@/lib/utils";
+import { Marquee } from "./magicui/marquee";
 
-const Feedback = () => {
+
+const reviews = [
+  {
+    name: "Jack",
+    username: "@jack",
+    body: "I've never seen anything like this before. It's amazing. I love it.",
+    img: "https://avatar.vercel.sh/jack",
+  },
+  {
+    name: "Jill",
+    username: "@jill",
+    body: "I don't know what to say. I'm speechless. This is amazing.",
+    img: "https://avatar.vercel.sh/jill",
+  },
+  {
+    name: "John",
+    username: "@john",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/john",
+  },
+  {
+    name: "Jane",
+    username: "@jane",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/jane",
+  },
+  {
+    name: "Jenny",
+    username: "@jenny",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/jenny",
+  },
+  {
+    name: "James",
+    username: "@james",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/james",
+  },
+];
+
+const firstRow = reviews.slice(0, reviews.length / 2);
+const secondRow = reviews.slice(reviews.length / 2);
+
+const ReviewCard = ({
+  img,
+  name,
+  username,
+  body,
+}) => {
   return (
-    <section className="min-h-screen px-4 py-3 flex items-center justify-center">
-      <div className="flex items-center flex-col justify-between gap-8 ">
-        <div className="flex flex-col items-center justify-center relative">
-          <div className="z-0 inset-0 absolute blur-3xl bg-[#ff47da]"></div>
-          <ScrollAnimation>
-          <h1 className="relative z-10 md:text-3xl font-bold mx-2 px-2 text-2xl animate-bounce text-[#ff3cc7]">
-            Here's what others are saying
-          </h1>
-          </ScrollAnimation>
-          <ScrollAnimation>
-          <p className="text-md p-2">
-            They think{" "}
-            <span className="text-green-400 font-bold">SmartScrap</span> is very
-            useful.
-          </p>
-          </ScrollAnimation>
-        </div>
-
-        <div className="mx-2 mt-8 px-2 py-2 grid md:grid-cols-3 grid-cols-2 gap-4 md:gap-8 ">
-          <ScrollAnimation>
-          <Card className="max-w-[340px] border-1 border-white rounded-2xl h-36 shadow-lg shadow-[#c77dff] transition-transform duration-500 delay-200 ease-in-out hover:scale-110 hover:-rotate-12">
-            <CardHeader className="justify-between">
-              <div className="flex gap-5">
-                <Avatar
-                  isBordered
-                  radius="full"
-                  size="md"
-                  src="https://heroui.com/avatars/avatar-1.png"
-                  className="border border-white m-2"
-                />
-                <div className="flex flex-col gap-0.5 items-start justify-center mt-1">
-                  <h4 className="text-small font-semibold leading-none text-default-600 text-gray-300">
-                    Zoey Lang
-                  </h4>
-                  <h5 className="text-small tracking-tight text-default-400 text-gray-500">
-                    @zoeylang
-                  </h5>
-                </div>
-              </div>
-            </CardHeader>
-            <CardBody className="px-3 py-0 text-small text-default-400 text-white m-2">
-              <p>
-                Frontend developer and UI/UX enthusiast. Join me on this coding
-                adventure!
-              </p>
-            </CardBody>
-          </Card>
-          </ScrollAnimation>
-
-          <ScrollAnimation>
-          <Card className="max-w-[340px] border-1 border-white rounded-2xl h-36 shadow-lg shadow-[#c77dff] transition-transform duration-500 delay-200 ease-in-out hover:scale-110 hover:-rotate-12">
-            <CardHeader className="justify-between">
-              <div className="flex gap-5">
-                <Avatar
-                  isBordered
-                  radius="full"
-                  size="md"
-                  src="https://heroui.com/avatars/avatar-1.png"
-                  className="border border-white m-2"
-                />
-                <div className="flex flex-col gap-0.5 items-start justify-center mt-1">
-                  <h4 className="text-small font-semibold leading-none text-default-600 text-gray-300">
-                    Zoey Lang
-                  </h4>
-                  <h5 className="text-small tracking-tight text-default-400 text-gray-500">
-                    @zoeylang
-                  </h5>
-                </div>
-              </div>
-            </CardHeader>
-            <CardBody className="px-3 py-0 text-small text-default-400 text-white m-2">
-              <p>
-                Frontend developer and UI/UX enthusiast. Join me on this coding
-                adventure!
-              </p>
-            </CardBody>
-          </Card>
-          </ScrollAnimation>
-
-          <ScrollAnimation>
-          <Card className="max-w-[340px] border-1 border-white rounded-2xl h-36 shadow-lg shadow-[#c77dff] transition-transform duration-500 delay-200 ease-in-out hover:scale-110 hover:-rotate-12">
-            <CardHeader className="justify-between">
-              <div className="flex gap-5">
-                <Avatar
-                  isBordered
-                  radius="full"
-                  size="md"
-                  src="https://heroui.com/avatars/avatar-1.png"
-                  className="border border-white m-2"
-                />
-                <div className="flex flex-col gap-0.5 items-start justify-center mt-1">
-                  <h4 className="text-small font-semibold leading-none text-default-600 text-gray-300">
-                    Zoey Lang
-                  </h4>
-                  <h5 className="text-small tracking-tight text-default-400 text-gray-500">
-                    @zoeylang
-                  </h5>
-                </div>
-              </div>
-            </CardHeader>
-            <CardBody className="px-3 py-0 text-small text-default-400 text-white m-2">
-              <p>
-                Frontend developer and UI/UX enthusiast. Join me on this coding
-                adventure!
-              </p>
-            </CardBody>
-          </Card>
-          </ScrollAnimation>
-
-          <ScrollAnimation>
-          <Card className="max-w-[340px] border-1 border-white rounded-2xl h-36 shadow-lg shadow-[#c77dff] transition-transform duration-500 delay-200 ease-in-out hover:scale-110 hover:-rotate-12">
-            <CardHeader className="justify-between">
-              <div className="flex gap-5">
-                <Avatar
-                  isBordered
-                  radius="full"
-                  size="md"
-                  src="https://heroui.com/avatars/avatar-1.png"
-                  className="border border-white m-2"
-                />
-                <div className="flex flex-col gap-0.5 items-start justify-center mt-1">
-                  <h4 className="text-small font-semibold leading-none text-default-600 text-gray-300">
-                    Zoey Lang
-                  </h4>
-                  <h5 className="text-small tracking-tight text-default-400 text-gray-500">
-                    @zoeylang
-                  </h5>
-                </div>
-              </div>
-            </CardHeader>
-            <CardBody className="px-3 py-0 text-small text-default-400 text-white m-2">
-              <p>
-                Frontend developer and UI/UX enthusiast. Join me on this coding
-                adventure!
-              </p>
-            </CardBody>
-          </Card>
-          </ScrollAnimation>
-
-          <ScrollAnimation>
-          <Card className="max-w-[340px] border-1 border-white rounded-2xl h-36 shadow-lg shadow-[#c77dff] transition-transform duration-500 delay-200 ease-in-out hover:scale-110 hover:-rotate-12">
-            <CardHeader className="justify-between">
-              <div className="flex gap-5">
-                <Avatar
-                  isBordered
-                  radius="full"
-                  size="md"
-                  src="https://heroui.com/avatars/avatar-1.png"
-                  className="border border-white m-2"
-                />
-                <div className="flex flex-col gap-0.5 items-start justify-center mt-1">
-                  <h4 className="text-small font-semibold leading-none text-default-600 text-gray-300">
-                    Zoey Lang
-                  </h4>
-                  <h5 className="text-small tracking-tight text-default-400 text-gray-500">
-                    @zoeylang
-                  </h5>
-                </div>
-              </div>
-            </CardHeader>
-            <CardBody className="px-3 py-0 text-small text-default-400 text-white m-2">
-              <p>
-                Frontend developer and UI/UX enthusiast. Join me on this coding
-                adventure!
-              </p>
-            </CardBody>
-          </Card>
-          </ScrollAnimation>
-
-          <ScrollAnimation>
-          <Card className="max-w-[340px] border-1 border-white rounded-2xl h-36 shadow-lg shadow-[#c77dff] transition-transform duration-500 delay-200 ease-in-out hover:scale-110 hover:-rotate-12">
-            <CardHeader className="justify-between">
-              <div className="flex gap-5">
-                <Avatar
-                  isBordered
-                  radius="full"
-                  size="md"
-                  src="https://heroui.com/avatars/avatar-1.png"
-                  className="border border-white m-2"
-                />
-                <div className="flex flex-col gap-0.5 items-start justify-center mt-1">
-                  <h4 className="text-small font-semibold leading-none text-default-600 text-gray-300">
-                    Zoey Lang
-                  </h4>
-                  <h5 className="text-small tracking-tight text-default-400 text-gray-500">
-                    @zoeylang
-                  </h5>
-                </div>
-              </div>
-            </CardHeader>
-            <CardBody className="px-3 py-0 text-small text-default-400 text-white m-2">
-              <p>
-                Frontend developer and UI/UX enthusiast. Join me on this coding
-                adventure!
-              </p>
-            </CardBody>
-          </Card>
-          </ScrollAnimation>
+    <figure
+      className={cn(
+        "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
+        // light styles
+        "border-white",
+      )}
+    >
+      <div className="flex flex-row items-center gap-2">
+        <img className="rounded-full" width="32" height="32" alt="" src={img} />
+        <div className="flex flex-col">
+          <figcaption className="text-sm font-medium ">
+            {name}
+          </figcaption>
+          <p className="text-xs font-medium ">{username}</p>
         </div>
       </div>
-    </section>
+      <blockquote className="mt-2 text-sm">{body}</blockquote>
+    </figure>
   );
 };
 
-export default Feedback;
+export default function Feedback() {
+  return (
+    <div className="relative flex w-full flex-col items-center justify-center overflow-hidden my-4">
+      <Marquee pauseOnHover className="[--duration:20s]">
+        {firstRow.map((review) => (
+          <ReviewCard key={review.username} {...review} />
+        ))}
+      </Marquee>
+      <Marquee reverse pauseOnHover className="[--duration:20s]">
+        {secondRow.map((review) => (
+          <ReviewCard key={review.username} {...review} />
+        ))}
+      </Marquee>
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-black"></div>
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-black"></div>
+    </div>
+  );
+}
