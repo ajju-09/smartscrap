@@ -34,7 +34,7 @@ const Navbar2 = () => {
         <Link href="/recycle" className="hover:border-b transition hover:text-green-500">
           Recycle
         </Link>
-        <Link href="/contact" className="hover:border-b transition hover:text-green-500">
+        <Link href="/contact-us" className="hover:border-b transition hover:text-green-500">
           Contact Us
         </Link>
         <Link href="/feedback" className="hover:border-b transition hover:text-green-500">
@@ -62,7 +62,7 @@ const Navbar2 = () => {
                 <Link href="/recycle" className="hover:text-gray-200 hover:border-b transition">
                   Recycle
                 </Link>
-                <Link href="/contact" className="hover:text-gray-200 hover:border-b transition">
+                <Link href="/contact-us" className="hover:text-gray-200 hover:border-b transition">
                   Contact Us
                 </Link>
                 <Link href="/feedback" className="hover:text-gray-200 hover:border-b transition">

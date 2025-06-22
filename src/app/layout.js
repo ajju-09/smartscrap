@@ -1,7 +1,11 @@
 import "./globals.css";
 import { Roboto } from "next/font/google";
 import { AppContextProvider } from "./context/AppContext";
-import { Toaster } from "@/components/ui/sonner";
+
+import 'leaflet/dist/leaflet.css';
+import { Toaster } from "react-hot-toast";
+import { ClerkProvider } from "@clerk/nextjs";
+
 
 
 const roboto = Roboto({
@@ -17,18 +21,20 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    
+    <ClerkProvider>
     <html lang="en">
       <body
         className={` ${roboto.variable} antialiased`}
       ><AppContextProvider>
       
-        {children}
         <Toaster />
+        {children}
+        
        
         </AppContextProvider>
       </body>
     </html>
+    </ClerkProvider>
     
   );
 }

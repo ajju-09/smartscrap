@@ -16,6 +16,11 @@ const userSchema = new Schema({
     type: String,
     required: [true, "Please provide a password"],
    },
+   role: {
+      type: String,
+      enum: ["user", "vendor"],
+      default: "user",
+   },
    isVerified: {
     type: Boolean,
     default: false

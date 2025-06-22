@@ -3,7 +3,7 @@ import mongoose, { Schema } from "mongoose";
 
 const RecycleSchema = new Schema({
     userId: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'users',
         required: true
     },
@@ -23,7 +23,13 @@ const RecycleSchema = new Schema({
         type: Number,
         required: true
     },
+    
     image: { type: Array, require: true},
+
+    createdAt: {
+        type: Date,
+        default: Date.now
+    },
 }, {
     timestamps: true
 })

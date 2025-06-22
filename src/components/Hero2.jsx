@@ -1,15 +1,16 @@
 "use client";
+
 import React, { useRef } from "react";
+import Image from "next/image";
+import Autoplay from "embla-carousel-autoplay";
 
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
-import { assets } from "@/assets/assets";
 import { Card, CardDescription, CardHeader } from "./ui/card";
-import Image from "next/image";
+import { assets } from "@/assets/assets";
 import { ScrollAnimation } from "./animation";
 
 const Hero2 = () => {
@@ -87,19 +88,19 @@ const Hero2 = () => {
   const plugin = useRef(Autoplay({ delay: 3000, stopOnInteraction: false }));
 
   return (
-    <section className="min-h-screen px-4 md:pt-8 pt-4">
-      <div className="flex items-center justify-center flex-col">
-        {/* Title with decorative background */}
-        <div className="relative">
+    <section className="min-h-screen px-4 pt-4 md:pt-8">
+      <div className="flex flex-col items-center justify-center">
+        {/* Title with background glow */}
+        <div className="relative mb-8">
           <div className="absolute inset-0 z-0 bg-[#6f2dbd] blur-2xl"></div>
           <ScrollAnimation>
-          <h1 className="md:text-5xl text-3xl text-center font-bold mb-18 relative z-10">
-            E-Waste Like
-          </h1>
+            <h1 className="text-3xl md:text-5xl font-bold text-center relative z-10">
+              E-Waste Like
+            </h1>
           </ScrollAnimation>
         </div>
 
-        {/* Carousel */}
+        {/* Carousel Content */}
         <Carousel
           dir="ltr"
           className="w-full max-w-7xl"
@@ -110,27 +111,27 @@ const Hero2 = () => {
             {sliderdata.map((item) => (
               <CarouselItem
                 key={item.id}
-                className="flex justify-center basis-[80%] sm:basis-1/2 md:basis-1/3 lg:basis-1/4 hover:scale-110 transition duration-500 ease-in-out"
+                className="flex justify-center basis-[80%] sm:basis-1/2 md:basis-1/3 lg:basis-1/4 transition duration-500 ease-in-out hover:scale-105"
               >
-                
-                {/* Card with shadow effect */}
-                <Card className="overflow-hidden border-none rounded-2xl w-full max-w-xs bg-black shadow-[0_8px_30px_rgba(188,0,221,0.3)] hover:shadow-[0_12px_40px_rgba(188,0,221,0.4)] transition-shadow duration-300">
-                <ScrollAnimation>
-                  <CardHeader className="font-bold text-xl text-center underline text-white">
-                    {item.title}
-                  </CardHeader>
-                  </ScrollAnimation>
+                <Card className="bg-black rounded-2xl w-full max-w-xs overflow-hidden border-none shadow-[0_8px_30px_rgba(188,0,221,0.3)] hover:shadow-[0_12px_40px_rgba(188,0,221,0.4)] transition-shadow duration-300">
                   <ScrollAnimation>
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-48 sm:h-60 object-cover rounded-xl"
-                  />
+                    <CardHeader className="text-white font-bold text-xl text-center underline">
+                      {item.title}
+                    </CardHeader>
                   </ScrollAnimation>
+
                   <ScrollAnimation>
-                  <CardDescription className="p-4 text-sm sm:text-base font-medium text-white">
-                    {item.Description}
-                  </CardDescription>
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-48 sm:h-60 object-cover rounded-xl"
+                    />
+                  </ScrollAnimation>
+
+                  <ScrollAnimation>
+                    <CardDescription className="text-white font-medium p-4 text-sm sm:text-base">
+                      {item.Description}
+                    </CardDescription>
                   </ScrollAnimation>
                 </Card>
               </CarouselItem>

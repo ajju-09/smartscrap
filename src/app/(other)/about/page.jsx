@@ -1,6 +1,7 @@
 'use client'
 import { assets, Box, File, Location } from "@/assets/assets";
 import { ScrollAnimation } from "@/components/animation";
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -115,6 +116,7 @@ const about = () => {
           
         </div>
       </section>
+       <Footer />
     </>
   );
 };

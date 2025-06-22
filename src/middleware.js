@@ -13,7 +13,7 @@ export function middleware(request) {
     return NextResponse.redirect(new URL("/", request.url));
   } 
 
-  if (!token && (path === "/profile" || path === "/thanku")) {
+  if (!token && (path === "/profile" || path === "/thanku" || path === "/contact-us" || path === "/feedback")) {
     return NextResponse.redirect(new URL("/sign-in", request.url));
   }
 
@@ -28,6 +28,9 @@ export const config = {
     '/sign-in',
     '/verifyemail',
     '/profile',
-    '/thanku'
+    '/thanku',
+    '/contact-us',
+    '/feedback'
   ]
 };
+

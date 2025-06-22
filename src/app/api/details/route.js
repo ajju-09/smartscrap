@@ -3,9 +3,6 @@ import { connectDB } from "@/lib/db";
 import User from "@/models/User";
 import { NextResponse } from "next/server";
 
-
-
-
 await connectDB();
 
 export async function GET(request){

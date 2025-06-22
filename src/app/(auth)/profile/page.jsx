@@ -26,6 +26,7 @@ const userProfile = () => {
         email: userData.email,
         createdAt: userData.createdAt?.slice(0, 10) || "N/A", // format date
       });
+      
     } catch (error) {
       console.log(error.message);
       toast.error("Failed to fetch details");

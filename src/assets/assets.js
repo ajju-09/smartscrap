@@ -114,4 +114,30 @@ export const File = () => {
   </svg>
     )
   }
+
+  import React from "react";
+
+export const Navigation = ({ width = 200, height = 200, fill = "#000000", onClick }) => {
+  return (
+    <svg
+      width={width}
+      height={height}
+      viewBox="0 0 49.636 49.636"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
+      onClick={onClick}
+      className="cursor-pointer"
+    >
+      <g>
+        <polygon
+          style={{ fill }}
+          points="23.001,27.245 0,23.39 49.636,0.61 25.636,49.026"
+        />
+      </g>
+    </svg>
+  );
+};
+
+
+
    

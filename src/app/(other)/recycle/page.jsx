@@ -10,20 +10,27 @@ import { Label } from "@/components/ui/label";
 import axios from "axios";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { toast } from "sonner";
+import toast from "react-hot-toast";
 
 const recycle = () => {
   const [details, setDetails] = useState({
     itemtype: "",
     quantity: 1,
-    phone: 0,
-    pincode: 0,
+    phone: "",
+    pincode: "",
     image: [],
   });
+  const [userId, setUserId] = useState("");
 
   const { router } = useAppContext();
   const [buttonDisabled, setButtonDisabled] = useState(false);
   const [loading, setLoading] = useState(false);
+
+const getUser = async() => {
+  const res = await axios.get("/api/details");
+  const userData = res.data.data;
+  setUserId(userData._id);
+}
 
   const handleImage = (e) => {
     setDetails({
@@ -40,10 +47,20 @@ const recycle = () => {
       formData.append("quantity", details.quantity);
       formData.append("phone", details.phone);
       formData.append("pincode", details.pincode);
+      formData.append("userId", userId);
 
       details.image.forEach((file) => {
         formData.append("images", file); // Note: using 'images' plural to match backend
       });
+
+      if (details.phone.toString().length !== 10) {
+        toast.error("Phone number must be 10 digits");
+        return;
+      }
+      if (details.pincode.toString().length !== 6) {
+        toast.error("Pincode must be 6 digits");
+        return;
+      }
 
       const res = await axios.post("/api/recycle", formData, {
         headers: {
@@ -53,20 +70,23 @@ const recycle = () => {
 
       console.log("Recycle data", res.data);
       toast.success("Successfully Recycled");
-      if(res.data.success) {
-        router.push('/thanku')
+      if (res.data.success) {
+        router.push("/thanku");
       }
-
     } catch (error) {
       console.log("Error in Recycle", error.response?.data || error.message);
       if (error.response?.status === 500) {
         toast.error("Please sign up or log in first");
-        router.push("/sign-up"); 
+        router.push("/sign-up");
       }
     } finally {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    getUser();
+  }, [])
 
   useEffect(() => {
     if (
@@ -149,6 +169,7 @@ const recycle = () => {
                 <Label htmlFor="phone">Phone No.</Label>
                 <Input
                   type="tel"
+                  maxLength={10}
                   id="phone"
                   placeholder="Enter phone no."
                   value={details.phone}
@@ -163,6 +184,7 @@ const recycle = () => {
                 <Label htmlFor="pincode">Pincode</Label>
                 <Input
                   type="number"
+                  maxLength={6}
                   id="pincode"
                   placeholder="Enter Pincode"
                   value={details.pincode}

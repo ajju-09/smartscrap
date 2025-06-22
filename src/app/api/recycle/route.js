@@ -20,7 +20,7 @@ export async function POST(request) {
     const quantity = formData.get("quantity");
     const phone = formData.get("phone");
     const pincode = formData.get("pincode");
-
+    const userIds = formData.get("userId");
     const images = formData.getAll("images");
 
     const result = await Promise.all(
@@ -30,7 +30,7 @@ export async function POST(request) {
 
             return new Promise((resolve, reject) => {
                 const stream = cloudinary.uploader.upload_stream(
-                    {resource_type: 'auto'},
+                    {folder: "smartscrap-recycle"},
                     (error, result) => {
                         if(error){
                             reject(error)
@@ -52,6 +52,7 @@ export async function POST(request) {
         quantity: Number(quantity),
         phone: Number(phone),
         pincode: Number(pincode),
+        userIds,
         image
 
     })
