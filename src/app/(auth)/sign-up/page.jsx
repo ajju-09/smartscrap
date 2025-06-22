@@ -1,8 +1,6 @@
 "use client";
 import { useAppContext } from "@/app/context/AppContext";
 import { assets, Loader } from "@/assets/assets";
-import { ScrollAnimation } from "@/components/animation";
-import { Particles } from "@/components/magicui/particles";
 import Navbar2 from "@/components/Navbar2";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -54,14 +52,11 @@ const signUp = () => {
   return (
     <>
       <Navbar2 />
-      <section className="flex flex-col md:flex-row items-center justify-center min-h-screen px-4 py-8">
-        <div className="absolute inset-0 -z-10">
-          <Particles quantity={200} ease={80} />
-        </div>
-
+      <section className="flex flex-col md:flex-row items-center justify-center min-h-screen px-4 py-8 relative">
+        
         {/* Image Section */}
         {/* <ScrollAnimation> */}
-        <div className="hidden md:flex w-1/2 justify-center items-center">
+        <div className="hidden md:flex w-1/2 justify-center items-center z-20">
           {assets.signupimg && (
             <Image
               src={assets.signupimg}
@@ -138,7 +133,7 @@ const signUp = () => {
 
             <p className="text-md px-2 mx-1 mt-3">
               Already have account ? visit{" "}
-              <Link href="/sign-in" className="text-blue-600">
+              <Link href="/sign-in" className="text-blue-600 ">
                 Sign In
               </Link>
             </p>
