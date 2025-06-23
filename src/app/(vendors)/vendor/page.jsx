@@ -86,8 +86,10 @@ const page = () => {
         </div>
       </nav>
 
+
       {/* Cards Section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {cards.length === 0 ? (<div className="flex items-center justify-center h-48"><p className="font-bold text-2xl">No Cards available</p></div>) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {cards.map((card) => (
           <div
             key={card._id}
@@ -105,10 +107,10 @@ const page = () => {
             <div className="card-body w-full">
               <div className="grid grid-cols-1 gap-3 text-lg">
                 <p className="font-bold ">
-                  UserId: <span className="font-semibold text-[#3a0ca3]">{card.userId._id}</span>
+                  UserId: <span className="font-semibold text-[#3a0ca3]">{card.userId._id || "NA"}</span>
                 </p>
                 <p className="font-bold">
-                  Email Id: <span className="font-semibold text-[#7400b8]">{card.userId.email}</span>
+                  Email Id: <span className="font-semibold text-[#7400b8]">{card.userId.email || "NA"}</span>
                 </p>
 
                 <div className="grid grid-cols-2 gap-3">
@@ -141,6 +143,8 @@ const page = () => {
           </div>
         ))}
       </div>
+      )}
+      
     </section>
   );
 };

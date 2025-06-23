@@ -52,7 +52,7 @@ const Navbar2 = () => {
           <SheetContent className="bg-[#222222] py-3">
             <SheetHeader>
               <SheetTitle className="text-[#1DCD9F] font-bold text-2xl text-center underline">
-                SmartScrap
+                <Link href="/">SmartScrap</Link>
               </SheetTitle>
 
               <SheetDescription className="flex flex-col items-center gap-6 mt-8 text-gray-100 text-lg font-medium">

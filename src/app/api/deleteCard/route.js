@@ -2,6 +2,7 @@ import { connectDB } from "@/lib/db";
 import Recycle from "@/models/Recycle";
 import { NextResponse } from "next/server";
 
+
 export async function DELETE(request) {
     try {
         await connectDB();

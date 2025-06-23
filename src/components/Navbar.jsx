@@ -8,7 +8,6 @@ import { HamIcon } from "@/assets/assets";
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -17,7 +16,8 @@ import { useAppContext } from "@/app/context/AppContext";
 
 const Navbar = () => {
   const { router } = useAppContext();
-  const [user, setUser] = useState({ username: "" });
+  const [user, setUser] = useState({ username: "" , role: ""});
+  const [isVendor, setIsVendor] = useState(false);
 
   useEffect(() => {
     const getUser = async () => {
@@ -25,12 +25,14 @@ const Navbar = () => {
         const res = await axios.get("/api/details");
         const userData = res.data.data;
         setUser({ username: userData.username });
+        setIsVendor(userData.role === "vendor");
       } catch (error) {
         console.log(error.message);
       }
     };
     getUser();
   }, []);
+
 
   const handleClick = () => {
     router.push("/profile");
@@ -69,9 +71,12 @@ const Navbar = () => {
         >
           Feedback
         </Link>
-        <Button variant="outline" className="text-black hover:cursor-pointer">
+        {isVendor && (
+          <Button variant="outline" className="text-black hover:cursor-pointer">
           <Link href="/vendor">Vendor</Link>
         </Button>
+        )}
+        
 
         {user.username ? (
           <div
@@ -96,7 +101,7 @@ const Navbar = () => {
           <SheetContent className="py-3">
             <SheetHeader>
               <SheetTitle className="text-center font-bold text-2xl underline">
-                SmartScrap
+                <Link href="/">SmartScrap</Link>
               </SheetTitle>
 
               {/* Replace SheetDescription with div to allow nested divs/buttons */}

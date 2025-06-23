@@ -33,9 +33,19 @@ const getUser = async() => {
 }
 
   const handleImage = (e) => {
+
+    const allowTypes = ["image/jpeg", "image/png", "image/jpg"];
+    const files = Array.from(e.target.files);
+    const invalidFiles = files.filter((file) => !allowTypes.includes(file.type));
+
+    if(invalidFiles.length > 0) {
+      toast.error("Only JPG, JPEG, and WEBP images are allowed.");
+      return;
+    }
+
     setDetails({
       ...details,
-      image: Array.from(e.target.files),
+      image: files,
     });
   };
 
@@ -203,6 +213,7 @@ const getUser = async() => {
                 type="file"
                 id="image"
                 multiple
+                accept = "image/jpeg, image/png, image/jpg"
                 onChange={handleImage}
                 className="transition-all file:border-none  hover:cursor-pointer border-2 hover:border-red-400 "
               />

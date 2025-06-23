@@ -1,4 +1,3 @@
-import { getDataFromToken } from "@/helper/getDataFromToken";
 import { connectDB } from "@/lib/db";
 import Recycle from "@/models/Recycle";
 import { NextResponse } from "next/server";
