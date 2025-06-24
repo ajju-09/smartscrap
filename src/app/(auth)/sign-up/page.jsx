@@ -9,7 +9,7 @@ import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { toast } from "sonner";
+import toast from "react-hot-toast";
 
 const signUp = () => {
   const { router } = useAppContext();
@@ -25,12 +25,10 @@ const signUp = () => {
   const onSignUp = async () => {
     try {
       setLoading(true);
-      const response = await axios.post("/api/signup", user);
-      console.log("Sign up success", response.data);
+      await axios.post("/api/signup", user);
       toast.success("Successfully Signup");
       router.push("/sign-in");
     } catch (error) {
-      console.log("SignUp failed");
       toast.error("SignUp failed");
     } finally {
       setLoading(false);

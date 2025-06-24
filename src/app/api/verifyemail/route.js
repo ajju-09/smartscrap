@@ -13,9 +13,9 @@ export async function POST(request){
         return NextResponse.json({message: "Invalid User"}, {status: 400})
         }
 
-        user.isVerified = true,
-        user.verifyToken = undefined
-        user.verifyTokenExpiry = undefined
+        user.isVerified = true;
+        user.verifyToken = undefined;
+        user.verifyTokenExpiry = undefined;
 
         await user.save();
 

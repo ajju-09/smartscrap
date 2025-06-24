@@ -10,7 +10,7 @@ import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { toast } from "sonner";
+import toast from "react-hot-toast";
 
 const signUp = () => {
   const { router } = useAppContext();
@@ -25,13 +25,11 @@ const signUp = () => {
   const onSignIn = async () => {
     try {
       setLoading(true);
-      const response = await axios.post("/api/signin", user);
-      console.log("Sign In success", response.data);
+      await axios.post("/api/signin", user);
       toast.success("Successfully SignIn");
       router.push("/");
     } catch (error) {
       toast.error("SignIn failed");
-      console.log("SignIn failed");
     } finally {
       setLoading(false);
     }
