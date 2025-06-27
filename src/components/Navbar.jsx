@@ -16,7 +16,7 @@ import { useAppContext } from "@/app/context/AppContext";
 
 const Navbar = () => {
   const { router } = useAppContext();
-  const [user, setUser] = useState({ username: "" , role: ""});
+  const [user, setUser] = useState({ username: "", role: "" });
   const [isVendor, setIsVendor] = useState(false);
 
   useEffect(() => {
@@ -32,7 +32,6 @@ const Navbar = () => {
     };
     getUser();
   }, []);
-
 
   const handleClick = () => {
     router.push("/profile");
@@ -73,10 +72,9 @@ const Navbar = () => {
         </Link>
         {isVendor && (
           <Button variant="outline" className="text-black hover:cursor-pointer">
-          <Link href="/vendor">Vendor</Link>
-        </Button>
+            <Link href="/vendor">Vendor</Link>
+          </Button>
         )}
-        
 
         {user.username ? (
           <div
@@ -118,12 +116,14 @@ const Navbar = () => {
                 <Link href="/feedback" className="hover:border-b transition">
                   Feedback
                 </Link>
-                <Button
-                  variant="outline"
-                  className="text-black hover:cursor-pointer"
-                >
-                  <Link href="/vendor">Vendor</Link>
-                </Button>
+                {isVendor && (
+                  <Button
+                    variant="outline"
+                    className="text-black hover:cursor-pointer"
+                  >
+                    <Link href="/vendor">Vendor</Link>
+                  </Button>
+                )}
 
                 {user.username ? (
                   <div
